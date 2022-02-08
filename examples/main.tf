@@ -9,7 +9,7 @@ terraform {
 
 provider "hashicups" {
   username = "education"
-  password = "test1234"
+  password = "test123"
 }
 
 module "psl" {
@@ -24,4 +24,23 @@ output "psl" {
 
 output "order" {
   value = module.psl.order
+}
+
+resource "hashicups_order" "edu" {
+  items {
+    coffee {
+      id = 3
+    }
+    quantity = 2
+  }
+  items {
+    coffee {
+      id = 2
+    }
+    quantity = 2
+  }
+}
+
+output "edu_order" {
+  value = hashicups_order.edu
 }
