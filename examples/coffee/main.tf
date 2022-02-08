@@ -27,3 +27,12 @@ output "coffee" {
     if coffee.name == var.coffee_name
   }
 }
+data "hashicups_order" "order" {
+  id = 1
+}
+
+output "order" {
+  value = data.hashicups_order.order
+}
+
+

@@ -18,3 +18,7 @@ module "psl" {
 output "psl" {
   value = module.psl.coffee
 }
+
+output "order" {
+  value = module.psl.order
+}
